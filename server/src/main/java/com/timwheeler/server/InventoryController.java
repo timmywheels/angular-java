@@ -7,24 +7,21 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @RestController
-class WishlistController {
+class InventoryController {
     private CarRepository repository;
 
-    public WishlistController(CarRepository repository) {
+    public InventoryController(CarRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/wishlist")
+    @GetMapping("/inventory")
     @CrossOrigin(origins = "http://localhost:4200")
     public Collection<Car> wishlist() {
         return repository.findAll().stream().filter(this::isOnWishlist).collect(Collectors.toList());
     }
 
     private boolean isOnWishlist(Car car) {
-        return !car.getName().equals("Ferrari") &&
-                !car.getName().equals("Lamborghini") &&
-                !car.getName().equals("Subaru") &&
-                !car.getName().equals("BMW");
+        return !car.getName().equals("Fiat 500");
     }
 
 }

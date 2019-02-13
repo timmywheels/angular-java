@@ -1,5 +1,15 @@
-<h2>Inventory</h2>
+<mat-card>
+  <mat-card-title>Inventory</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let car of cars">
+        <img mat-list-avatar src="{{car.giphyUrl}}" alt="{{car.name}}">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/edit', car.id]">{{car.name}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
 
-<div *ngFor="let car of cars">
-  {{car.name}}
-</div>
+  <button mat-fab color="primary" [routerLink]="['/add']">Add</button>
+</mat-card>

@@ -17,7 +17,7 @@ public class ServerApplication {
 	@Bean
 	ApplicationRunner init(CarRepository repository) {
 		return args -> {
-			Stream.of("Ferrari", "Lamborghini", "Porsche", "Mercedes-Benz", "BMW", "Subaru", "Bugatti", "Tesla", "McClaren").forEach(name -> {
+			Stream.of("Ferrari F40", "Lamborghini Aventador", "Porsche 911", "Mercedes-Benz AMG C63", "BMW M3", "Subaru WRX", "Bugatti", "Tesla Model S", "McClaren P1", "Fiat 500").forEach(name -> {
 				Car car = new Car();
 				car.setName(name);
 				repository.save(car);
